@@ -20,6 +20,14 @@ interface DashboardStats {
   failed_login_attempts: number;
 }
 
+const formatHarareTime = (timestamp: string): string => {
+  return new Intl.DateTimeFormat("en-ZW", {
+    timeZone: "Africa/Harare",
+    dateStyle: "medium",
+    timeStyle: "medium",
+  }).format(new Date(timestamp));
+};
+
 function Dashboard() {
   const [alerts, setAlerts] = useState<ThreatAlert[]>([]);
   const [stats, setStats] = useState<DashboardStats | null>(null);
@@ -299,7 +307,7 @@ const handleGenerateAlerts = async (): Promise<void> => {
 
                 <p>
                   <strong>Time:</strong>{" "}
-                  {alert.timestamp}
+                 {formatHarareTime(alert.timestamp)}
                 </p>
               </div>
             ))}

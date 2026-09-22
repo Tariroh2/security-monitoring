@@ -9,6 +9,14 @@ interface AuthenticationLog {
   timestamp: string;
 }
 
+const formatHarareTime = (timestamp: string): string => {
+  return new Intl.DateTimeFormat("en-ZW", {
+    timeZone: "Africa/Harare",
+    dateStyle: "medium",
+    timeStyle: "medium",
+  }).format(new Date(timestamp));
+};
+
 function AuthLogs() {
   const [logs, setLogs] = useState<AuthenticationLog[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -104,7 +112,7 @@ function AuthLogs() {
 
                 <p>
                   <strong>Timestamp:</strong>{" "}
-                  {log.timestamp}
+                  {formatHarareTime(log.timestamp)}
                 </p>
               </div>
             ))}
