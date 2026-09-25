@@ -149,7 +149,7 @@ Open PowerShell and navigate to the backend directory:
 
 Activate the Python virtual environment:
 
-    ..\venv\Scripts\Activate.ps1
+    .\venv\Scripts\Activate.ps1
 
 Install the required Python packages:
 
